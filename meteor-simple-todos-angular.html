@@ -1,0 +1,15 @@
+<head>
+  <title>Todo List</title>
+</head>
+
+<body>
+  <div class="container" ng-app="simple-todos" ng-controller="TodosListCtrl">
+    <header>
+      <h1>Todo List</h1>
+    </header>
+
+    <ul>
+      <li ng-repeat="task in tasks">{{task.text}}</li>
+    </ul>
+  </div>
+</body>
