@@ -6,6 +6,10 @@
   <div class="container" ng-app="simple-todos" ng-controller="TodosListCtrl">
     <header>
       <h1>Todo List</h1>
+
+      <form ng-submit="addTask(newTask); newTask='';" class="new-task">
+        <input type="text" ng-model="newTask" name="text" placeholder="Type to add new tasks" />
+      </form>
     </header>
 
     <ul>
