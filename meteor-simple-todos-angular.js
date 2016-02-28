@@ -15,8 +15,12 @@ Tasks = new Mongo.Collection("tasks");
 
 
 if (Meteor.isClient) {
+  Accounts.ui.config({
+    passwordSignupFields: "USERNAME_ONLY",
+  });
+
   // This code only runs on the client
-  angular.module('simple-todos', ['angular-meteor']);
+  angular.module('simple-todos', ['angular-meteor', 'accounts.ui']);
 
   angular.module('simple-todos').controller('TodosListCtrl', ['$scope', '$meteor',
     function ($scope, $meteor) {
@@ -28,7 +32,9 @@ if (Meteor.isClient) {
       $scope.addTask = function (newTask) {
         $scope.tasks.push( {
           text: newTask,
-          createdAt: new Date()
+          createdAt: new Date(),
+          owner: Meteor.userId(),
+          username: Meteor.user().username
         });
       };
 
