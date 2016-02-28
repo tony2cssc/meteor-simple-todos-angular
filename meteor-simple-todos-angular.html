@@ -5,7 +5,12 @@
 <body>
   <div class="container" ng-app="simple-todos" ng-controller="TodosListCtrl">
     <header>
-      <h1>Todo List</h1>
+      <h1>Todo List ({{incompleteCount()}})</h1>
+
+      <label for="" class="hide-completed">
+        <input type="checkbox" ng-model="hideCompleted" />
+        Hide Completed Tasks
+      </label>
 
       <form ng-submit="addTask(newTask); newTask='';" class="new-task">
         <input type="text" ng-model="newTask" name="text" placeholder="Type to add new tasks" />
